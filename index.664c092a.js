@@ -652,5 +652,5 @@ class St{toString(){return"gs://"+this._location.bucket+"/"+this._location.path}
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */(n,...r),n}(me({apiKey:"AIzaSyAi4Znr4vdnDxyTidQOWSzpihwHJ_F7dpk",authDomain:"parcel-test-repo.firebaseapp.com",projectId:"parcel-test-repo",storageBucket:"parcel-test-repo.appspot.com",messagingSenderId:"13724922883",appId:"1:13724922883:web:f45f7c2c45c92bbf034a36",measurementId:"G-V2E0KQV90H"})),$t=(Ht="./newFile",Ut(N(Ft),Ht));var Ht;const jt=new File([1,2,3,4],"newFile");var Vt,zt,Wt;console.log(jt),(Vt=$t,zt=jt,kt(Vt=N(Vt),zt,Wt)).then((e=>{console.log("Uploaded a blob or file!")}));
-//# sourceMappingURL=index.86bdcc88.js.map
+ */(n,...r),n}(me({apiKey:"AIzaSyAi4Znr4vdnDxyTidQOWSzpihwHJ_F7dpk",authDomain:"parcel-test-repo.firebaseapp.com",projectId:"parcel-test-repo",storageBucket:"parcel-test-repo.appspot.com",messagingSenderId:"13724922883",appId:"1:13724922883:web:f45f7c2c45c92bbf034a36",measurementId:"G-V2E0KQV90H"})),$t=(Ht="./newFile.txt",Ut(N(Ft),Ht));var Ht;const jt=new File([1,2,3,4],"newFile");var Vt,zt,Wt;console.log(jt),(Vt=$t,zt=jt,kt(Vt=N(Vt),zt,Wt)).then((e=>{console.log("Uploaded a blob or file!")}));
+//# sourceMappingURL=index.664c092a.js.map

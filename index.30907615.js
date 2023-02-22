@@ -652,5 +652,5 @@ class St{toString(){return"gs://"+this._location.bucket+"/"+this._location.path}
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */(n,...r),n}(me({apiKey:"AIzaSyAi4Znr4vdnDxyTidQOWSzpihwHJ_F7dpk",authDomain:"parcel-test-repo.firebaseapp.com",projectId:"parcel-test-repo",storageBucket:"parcel-test-repo.appspot.com",messagingSenderId:"13724922883",appId:"1:13724922883:web:f45f7c2c45c92bbf034a36",measurementId:"G-V2E0KQV90H"})),zt=Ft(Vt,"./newFile.txt"),Wt=new File([1,2,3,4],"newFile");console.log(Wt),Mt(zt,Wt).then((e=>{console.log("Uploaded a blob or file!")})),Ht.addEventListener("click",(e=>{e.preventDefault();const t=jt.files[0];Mt(Ft(Vt,"./glossary2.pdf"),t).then((e=>{console.log("Uploaded a blob or file!")}))}));
-//# sourceMappingURL=index.98ce716e.js.map
+ */(n,...r),n}(me({apiKey:"AIzaSyAi4Znr4vdnDxyTidQOWSzpihwHJ_F7dpk",authDomain:"parcel-test-repo.firebaseapp.com",projectId:"parcel-test-repo",storageBucket:"parcel-test-repo.appspot.com",messagingSenderId:"13724922883",appId:"1:13724922883:web:f45f7c2c45c92bbf034a36",measurementId:"G-V2E0KQV90H"}));Ht.addEventListener("click",(e=>{e.preventDefault();const t=jt.files[0];!function(e,t){Mt(Ft(Vt,t),e).then((e=>{console.log("Uploaded a blob or file!")}))}(t,`./${t.name}`)}));
+//# sourceMappingURL=index.30907615.js.map

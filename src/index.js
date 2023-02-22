@@ -30,7 +30,7 @@ const storage = getStorage(app);
 // console.log(storage);
 
 // Create a storage reference from our storage service
-const storageRef = ref(storage, './newFile');
+const storageRef = ref(storage, './newFile.txt');
 
 const file = new File([1, 2, 3, 4], 'newFile');
 console.log(file);

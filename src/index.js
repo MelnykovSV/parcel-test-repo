@@ -29,6 +29,10 @@ const storageRef = ref(storage, './newFile');
 
 const file = new File([1, 2, 3, 4], 'newFile');
 
-uploadBytes(storageRef, file).then(snapshot => {
-  console.log('Uploaded a blob or file!');
-});
+uploadBytes(storageRef, file)
+  .then(snapshot => {
+    console.log('Uploaded a blob or file!');
+  })
+  .catch(error => {
+    console.log('ERROR');
+  });

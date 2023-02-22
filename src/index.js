@@ -7,6 +7,9 @@
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 
+const inputButton = document.querySelector('button');
+const fileInput = document.querySelector('input');
+
 const firebaseConfig = {
   apiKey: 'AIzaSyAi4Znr4vdnDxyTidQOWSzpihwHJ_F7dpk',
   authDomain: 'parcel-test-repo.firebaseapp.com',
@@ -37,4 +40,14 @@ console.log(file);
 
 uploadBytes(storageRef, file).then(snapshot => {
   console.log('Uploaded a blob or file!');
+});
+
+inputButton.addEventListener('click', e => {
+  e.preventDefault();
+  const file = fileInput.files[0];
+
+  const storageRef = ref(storage, './glossary2.pdf');
+  uploadBytes(storageRef, file).then(snapshot => {
+    console.log('Uploaded a blob or file!');
+  });
 });

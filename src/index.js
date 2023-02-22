@@ -5,7 +5,7 @@
 //   });
 
 import { initializeApp } from 'firebase/app';
-import { getStorage, ref, uploadBytes } from 'firebase/storage';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 const inputButton = document.querySelector('button');
 const fileInput = document.querySelector('input');
@@ -26,28 +26,15 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Storage and get a reference to the service
 const storage = getStorage(app);
 
-// console.log(initializeApp);
-// console.log(getStorage);
-
-// console.log(app);
-// console.log(storage);
-
-// Create a storage reference from our storage service
-const storageRef = ref(storage, './newFile.txt');
-
-const file = new File([1, 2, 3, 4], 'newFile');
-console.log(file);
-
-uploadBytes(storageRef, file).then(snapshot => {
-  console.log('Uploaded a blob or file!');
-});
-
 inputButton.addEventListener('click', e => {
   e.preventDefault();
   const file = fileInput.files[0];
+  writeFile(file, `./${file.name}`);
+});
 
-  const storageRef = ref(storage, './glossary2.pdf');
+function writeFile(file, path) {
+  const storageRef = ref(storage, path);
   uploadBytes(storageRef, file).then(snapshot => {
     console.log('Uploaded a blob or file!');
   });
-});
+}

@@ -8,8 +8,13 @@ import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
 
 const firebaseConfig = {
-  // ...
-  storageBucket: '',
+  apiKey: 'AIzaSyAi4Znr4vdnDxyTidQOWSzpihwHJ_F7dpk',
+  authDomain: 'parcel-test-repo.firebaseapp.com',
+  projectId: 'parcel-test-repo',
+  storageBucket: 'parcel-test-repo.appspot.com',
+  messagingSenderId: '13724922883',
+  appId: '1:13724922883:web:f45f7c2c45c92bbf034a36',
+  measurementId: 'G-V2E0KQV90H',
 };
 
 // Initialize Firebase
@@ -28,11 +33,8 @@ const storage = getStorage(app);
 const storageRef = ref(storage, './newFile');
 
 const file = new File([1, 2, 3, 4], 'newFile');
+console.log(file);
 
-uploadBytes(storageRef, file)
-  .then(snapshot => {
-    console.log('Uploaded a blob or file!');
-  })
-  .catch(error => {
-    console.log('ERROR');
-  });
+uploadBytes(storageRef, file).then(snapshot => {
+  console.log('Uploaded a blob or file!');
+});

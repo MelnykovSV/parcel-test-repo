@@ -5,7 +5,13 @@
 //   });
 
 import { initializeApp } from 'firebase/app';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from 'firebase/storage';
 
 const saveButton = document.querySelector('.save');
 const loadButton = document.querySelector('.load');
@@ -42,14 +48,27 @@ loadButton.addEventListener('click', e => {
       console.log(url);
 
       // This can be downloaded directly:
-      const xhr = new XMLHttpRequest();
-      xhr.responseType = 'blob';
-      xhr.onload = event => {
-        const blob = xhr.response;
-      };
-      xhr.open('GET', url);
-      xhr.send();
-      console.log(xhr);
+      // const xhr = new XMLHttpRequest();
+      // xhr.responseType = 'blob';
+      // xhr.onload = event => {
+      //   const blob = xhr.response;
+      // };
+      // xhr.open('GET', url);
+      // xhr.send();
+      // console.log(xhr);
+
+      fetch(url)
+        .then(response => {
+          // Response handling
+          console.log(response);
+        })
+        .then(data => {
+          // Data handling
+          console.log(data);
+        })
+        .catch(error => {
+          // Error handling
+        });
 
       // Or inserted into an <img> element
       // const img = document.getElementById('myimg');
@@ -57,6 +76,19 @@ loadButton.addEventListener('click', e => {
     })
     .catch(error => {
       // Handle any errors
+    });
+});
+
+deleteButton.addEventListener('click', e => {
+  e.preventDefault();
+  const ref1 = ref(storage, './Glossary 2 + Text UA.docx.pdf');
+  deleteObject(ref1)
+    .then(() => {
+      // File deleted successfully
+      console.log('deleted');
+    })
+    .catch(error => {
+      // Uh-oh, an error occurred!
     });
 });
 

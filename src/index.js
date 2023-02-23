@@ -1,9 +1,3 @@
-// fetch('https://mhw-db.com/monsters/56')
-//   .then(response => response.json())
-//   .then(sets => {
-//     console.log(sets);
-//   });
-
 import { initializeApp } from 'firebase/app';
 import {
   getStorage,
@@ -42,41 +36,48 @@ saveButton.addEventListener('click', e => {
 
 loadButton.addEventListener('click', e => {
   e.preventDefault();
-  getDownloadURL(ref(storage, './file.pdf'))
+  // getDownloadURL(ref(storage, './Glossary 2 + Text UA.docx.pdf'))
+  //   .then(url => {
+  //     // `url` is the download URL for 'images/stars.jpg'
+  //     console.log(url);
+
+  //     // fetch(url)
+  //     //   .then(response => {
+  //     //     // Response handling
+  //     //     console.log(response);
+  //     //   })
+  //     //   .then(data => {
+  //     //     // Data handling
+  //     //     console.log(data);
+  //     //   })
+  //     //   .catch(error => {
+  //     //     // Error handling
+  //     //   });
+  getDownloadURL(ref(storage, './Glossary 2 + Text UA.docx.pdf'))
     .then(url => {
       // `url` is the download URL for 'images/stars.jpg'
-      console.log(url);
 
       // This can be downloaded directly:
-      // const xhr = new XMLHttpRequest();
-      // xhr.responseType = 'blob';
-      // xhr.onload = event => {
-      //   const blob = xhr.response;
-      // };
-      // xhr.open('GET', url);
-      // xhr.send();
-      // console.log(xhr);
-
-      fetch(url)
-        .then(response => {
-          // Response handling
-          console.log(response);
-        })
-        .then(data => {
-          // Data handling
-          console.log(data);
-        })
-        .catch(error => {
-          // Error handling
-        });
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = event => {
+        const blob = xhr.response;
+      };
+      xhr.open('GET', url);
+      xhr.send();
 
       // Or inserted into an <img> element
-      // const img = document.getElementById('myimg');
-      // img.setAttribute('src', url);
+      const img = document.getElementById('myimg');
+      img.setAttribute('src', url);
     })
     .catch(error => {
       // Handle any errors
     });
+
+  //   })
+  //   .catch(error => {
+  //     // Handle any errors
+  //   });
 });
 
 deleteButton.addEventListener('click', e => {

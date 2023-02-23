@@ -53,7 +53,7 @@ loadButton.addEventListener('click', e => {
   //     //   .catch(error => {
   //     //     // Error handling
   //     //   });
-  getDownloadURL(ref(storage, './Glossary 2 + Text UA.docx.pdf'))
+  getDownloadURL(ref(storage, './img.jpg'))
     .then(url => {
       // `url` is the download URL for 'images/stars.jpg'
 
@@ -67,8 +67,9 @@ loadButton.addEventListener('click', e => {
       xhr.send();
 
       // Or inserted into an <img> element
-      const img = document.getElementById('myimg');
-      img.setAttribute('src', url);
+      // const img = document.querySelector('img');
+      // console.log(img);
+      // img.setAttribute('src', url);
     })
     .catch(error => {
       // Handle any errors

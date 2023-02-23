@@ -7,7 +7,9 @@
 import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-const inputButton = document.querySelector('button');
+const saveButton = document.querySelector('.save');
+const loadButton = document.querySelector('.load');
+const deleteButton = document.querySelector('.delete');
 const fileInput = document.querySelector('input');
 
 const firebaseConfig = {
@@ -26,10 +28,36 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Storage and get a reference to the service
 const storage = getStorage(app);
 
-inputButton.addEventListener('click', e => {
+saveButton.addEventListener('click', e => {
   e.preventDefault();
   const file = fileInput.files[0];
   writeFile(file, `./${file.name}`);
+});
+
+loadButton.addEventListener('click', e => {
+  e.preventDefault();
+  getDownloadURL(ref(storage, './file.pdf'))
+    .then(url => {
+      // `url` is the download URL for 'images/stars.jpg'
+      console.log(url);
+
+      // This can be downloaded directly:
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = 'blob';
+      xhr.onload = event => {
+        const blob = xhr.response;
+      };
+      xhr.open('GET', url);
+      xhr.send();
+      console.log(xhr);
+
+      // Or inserted into an <img> element
+      // const img = document.getElementById('myimg');
+      // img.setAttribute('src', url);
+    })
+    .catch(error => {
+      // Handle any errors
+    });
 });
 
 function writeFile(file, path) {
